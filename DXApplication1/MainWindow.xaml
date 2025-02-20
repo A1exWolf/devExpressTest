@@ -25,6 +25,9 @@
                         <dxg:FormatCondition Expression="[CHECKED] = true" FieldName="CHECKED">
                             <dx:Format Background="Green"/>
                         </dxg:FormatCondition>
+                        <!-- <dxg:FormatCondition Expression="[CHECKED] = null" FieldName="CHECKED" ApplyToRow="True"> -->
+                        <!--     <dx:Format Background="Red"/> -->
+                        <!-- </dxg:FormatCondition> -->
                     </dxg:TableView.FormatConditions>
                 </dxg:TableView>
             </dxg:GridControl.View>

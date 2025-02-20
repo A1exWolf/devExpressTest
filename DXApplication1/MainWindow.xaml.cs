@@ -11,6 +11,7 @@ using System.ComponentModel;
 using System.Drawing;
 using System.Windows.Forms;
 using System.Windows.Media;
+using DevExpress.Xpf.Core.ConditionalFormatting;
 using DevExpress.Xpf.Grid;
 
 namespace DXApplication1
@@ -119,6 +120,19 @@ namespace DXApplication1
             {
                 await LoadDataToGrid();
             };
+
+            var cond1 = new FormatCondition
+            {
+                FieldName = "CHECKED",
+                ValueRule = ConditionRule.Equal,
+                Expression = "[CHECKED] = null",
+                ApplyToRow = true,
+                Format = new Format
+                {
+                    Background = new SolidColorBrush(Colors.Coral)
+                }
+            };
+            tableView1.FormatConditions.Add(cond1);
         }
 
         public async Task LoadDataToGrid()
