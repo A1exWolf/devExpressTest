@@ -9,10 +9,12 @@ using System.Collections.ObjectModel;
 using Newtonsoft.Json.Converters;
 using System.ComponentModel;
 using System.Drawing;
+using System.Windows;
 using System.Windows.Forms;
 using System.Windows.Media;
 using DevExpress.Xpf.Core.ConditionalFormatting;
 using DevExpress.Xpf.Grid;
+using Brushes = System.Windows.Media.Brushes;
 
 namespace DXApplication1
 {
@@ -120,16 +122,16 @@ namespace DXApplication1
             {
                 await LoadDataToGrid();
             };
-
+            
             var cond1 = new FormatCondition
             {
-                FieldName = "CHECKED",
-                ValueRule = ConditionRule.Equal,
+                FieldName = "CUSTOMER",
                 Expression = "[CHECKED] = null",
-                ApplyToRow = true,
                 Format = new Format
                 {
-                    Background = new SolidColorBrush(Colors.Coral)
+                    Background = new SolidColorBrush(Colors.Coral),
+                    FontStyle = FontStyles.Italic,
+                    Foreground = Brushes.White
                 }
             };
             tableView1.FormatConditions.Add(cond1);

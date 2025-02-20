@@ -22,9 +22,9 @@
                                AutoWidth="True"
                                AllowDragDrop="True">
                     <dxg:TableView.FormatConditions>
-                        <dxg:FormatCondition Expression="[CHECKED] = true" FieldName="CHECKED">
+                        <!--<dxg:FormatCondition Expression="[CHECKED] = true" FieldName="CHECKED">
                             <dx:Format Background="Green"/>
-                        </dxg:FormatCondition>
+                        </dxg:FormatCondition>-->
                         <!-- <dxg:FormatCondition Expression="[CHECKED] = null" FieldName="CHECKED" ApplyToRow="True"> -->
                         <!--     <dx:Format Background="Red"/> -->
                         <!-- </dxg:FormatCondition> -->
