@@ -1,0 +1,5 @@
+/packages/*
+DXApplication1/bin/*
+DXApplication1/obj/*
+.idea*
+.vs*

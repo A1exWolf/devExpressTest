@@ -1,0 +1,8 @@
+﻿<wpf:ResourceDictionary xml:space="preserve" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:ss="urn:shemas-jetbrains-com:settings-storage-xaml" xmlns:wpf="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
+	<s:String x:Key="/Default/CodeInspection/ExcludedFiles/FilesAndFoldersToSkip2/=7020124F_002D9FFC_002D4AC3_002D8F3D_002DAAB8E0240759_002Ff_003AControl_002Ecs_002Fl_003A_002E_002E_003F_002E_002E_003F_002E_002E_003FAppData_003FRoaming_003FJetBrains_003FRider2025_002E1_003Fresharper_002Dhost_003FDecompilerCache_003Fdecompiler_003F59f2ca4688a64d5f888b3fcdc2455b45600798_003Fe3_003Fb4d116d9_003FControl_002Ecs/@EntryIndexedValue">ForceIncluded</s:String>
+	<s:String x:Key="/Default/CodeInspection/ExcludedFiles/FilesAndFoldersToSkip2/=7020124F_002D9FFC_002D4AC3_002D8F3D_002DAAB8E0240759_002Ff_003AGridControl_002Ecs_002Fl_003A_002E_002E_003F_002E_002E_003F_002E_002E_003FAppData_003FRoaming_003FJetBrains_003FRider2025_002E1_003Fresharper_002Dhost_003FDecompilerCache_003Fdecompiler_003F977cf8721d884808a8f2554de70d87982c6990_003Fe5_003F66cbf098_003FGridControl_002Ecs/@EntryIndexedValue">ForceIncluded</s:String>
+	<s:String x:Key="/Default/Environment/AssemblyExplorer/XmlDocument/@EntryValue">&lt;AssemblyExplorer&gt;&#xD;
+  &lt;Assembly Path="C:\Program Files\DevExpress 22.2\Components\Bin\Framework\DevExpress.Drawing.v22.2.dll" /&gt;&#xD;
+  &lt;Assembly Path="C:\Program Files\DevExpress 22.2\Components\Bin\Framework\DevExpress.Xpf.Grid.v22.2.dll" /&gt;&#xD;
+  &lt;Assembly Path="C:\Program Files\DevExpress 22.2\Components\Bin\Framework\DevExpress.Xpf.Core.v22.2.dll" /&gt;&#xD;
+&lt;/AssemblyExplorer&gt;</s:String></wpf:ResourceDictionary>
