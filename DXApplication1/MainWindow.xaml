@@ -20,7 +20,13 @@
             <dxg:GridControl.View>
                 <dxg:TableView x:Name="tableView1"
                                AutoWidth="True"
-                               AllowDragDrop="True"/>
+                               AllowDragDrop="True">
+                    <dxg:TableView.FormatConditions>
+                        <dxg:FormatCondition Expression="[CHECKED] = true" FieldName="CHECKED">
+                            <dx:Format Background="Green"/>
+                        </dxg:FormatCondition>
+                    </dxg:TableView.FormatConditions>
+                </dxg:TableView>
             </dxg:GridControl.View>
         </dxg:GridControl>
     </Grid>
