@@ -8,13 +8,17 @@ using DevExpress.Xpf.Core;
 using System.Collections.ObjectModel;
 using Newtonsoft.Json.Converters;
 using System.ComponentModel;
+using System.Diagnostics;
 using System.Drawing;
+using System.Linq;
 using System.Windows;
 using System.Windows.Forms;
+using System.Windows.Input;
 using System.Windows.Media;
 using DevExpress.Xpf.Core.ConditionalFormatting;
 using DevExpress.Xpf.Grid;
 using Brushes = System.Windows.Media.Brushes;
+using KeyEventArgs = System.Windows.Input.KeyEventArgs;
 
 namespace DXApplication1
 {
@@ -180,6 +184,40 @@ namespace DXApplication1
         private void Button_Click(object sender, System.Windows.RoutedEventArgs e)
         {
             Task task = LoadDataToGrid();
+        }
+
+        private void Button_Click2(object sender, RoutedEventArgs e)
+        {
+            // var selectedItems = gridControl1.SelectedItems.Cast<ConsumptionItem>();
+            //
+            // foreach (var items in selectedItems)
+            // {
+            //     Debug.WriteLine(items.CUSTOMER + items.USERNAME + items.ART);
+            // }
+
+            if (gridControl1.SelectedItem is ConsumptionItem selectedItem) Debug.WriteLine(selectedItem.ART + selectedItem.NAME + selectedItem.USERNAME);
+        }
+
+        private void TableView1_OnFocusedRowHandleChanged(object sender, FocusedRowHandleChangedEventArgs e)
+        {
+            var item = (ConsumptionItem)e.RowData.Row;
+
+            if (item != null && item.CHECKED == true)
+            {
+                SelectRow.IsEnabled = true;
+            }
+            else
+            {
+                SelectRow.IsEnabled = false;
+            }
+        }
+
+        private void GridControl1_OnKeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.M)
+            {
+                if (gridControl1.SelectedItem is ConsumptionItem selectedItem) Debug.WriteLine(selectedItem.ART + selectedItem.NAME + selectedItem.USERNAME);
+            }
         }
     }
 }

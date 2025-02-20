@@ -9,18 +9,22 @@
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="25"/>
+            <RowDefinition Height="25"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
         <Button Click="Button_Click" Grid.Row="0">Запрос</Button>
+        <Button Click="Button_Click2" x:Name="SelectRow" Grid.Row="1">Данные выбранной строки</Button>
         <dxg:GridControl x:Name="gridControl1"
                          AutoGenerateColumns="AddNew"
                          HorizontalAlignment="Stretch"
                          VerticalAlignment="Stretch"
-                         Grid.Row="1">
+                         KeyDown="GridControl1_OnKeyDown"
+                         Grid.Row="2">
             <dxg:GridControl.View>
                 <dxg:TableView x:Name="tableView1"
                                AutoWidth="True"
-                               AllowDragDrop="True">
+                               AllowDragDrop="True"
+                               FocusedRowHandleChanged="TableView1_OnFocusedRowHandleChanged">
                     <dxg:TableView.FormatConditions>
                         <!--<dxg:FormatCondition Expression="[CHECKED] = true" FieldName="CHECKED">
                             <dx:Format Background="Green"/>
@@ -29,6 +33,17 @@
                         <!--     <dx:Format Background="Red"/> -->
                         <!-- </dxg:FormatCondition> -->
                     </dxg:TableView.FormatConditions>
+                    
+                    <dxg:TableView.RowStyle>
+                        <Style TargetType="dxg:RowControl">
+                            <Style.Triggers>
+                                <Trigger Property="SelectionState" Value="Focused">
+                                    <Setter Property="Background" Value="Gold"/>
+                                    <Setter Property="FontWeight" Value="Bold"/>
+                                </Trigger>
+                            </Style.Triggers>
+                        </Style>
+                    </dxg:TableView.RowStyle>
                 </dxg:TableView>
             </dxg:GridControl.View>
         </dxg:GridControl>
