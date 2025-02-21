@@ -24,6 +24,7 @@
                 <dxg:TableView x:Name="tableView1"
                                AutoWidth="True"
                                AllowDragDrop="True"
+                               EditFormShowMode="Inline"
                                FocusedRowHandleChanged="TableView1_OnFocusedRowHandleChanged">
                     <dxg:TableView.FormatConditions>
                         <!--<dxg:FormatCondition Expression="[CHECKED] = true" FieldName="CHECKED">
@@ -31,6 +32,7 @@
                         </dxg:FormatCondition>-->
                         <!-- <dxg:FormatCondition Expression="[CHECKED] = null" FieldName="CHECKED" ApplyToRow="True"> -->
                         <!--     <dx:Format Background="Red"/> -->
+                        <!-- </dxg:FormatCondition> -->
                         <!-- </dxg:FormatCondition> -->
                     </dxg:TableView.FormatConditions>
                     

@@ -8,6 +8,7 @@ using DevExpress.Xpf.Core;
 using System.Collections.ObjectModel;
 using Newtonsoft.Json.Converters;
 using System.ComponentModel;
+using System.Data.Common;
 using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
@@ -15,6 +16,7 @@ using System.Windows;
 using System.Windows.Forms;
 using System.Windows.Input;
 using System.Windows.Media;
+using DevExpress.Mvvm.Native;
 using DevExpress.Xpf.Core.ConditionalFormatting;
 using DevExpress.Xpf.Grid;
 using Brushes = System.Windows.Media.Brushes;
@@ -63,13 +65,13 @@ namespace DXApplication1
         [JsonProperty("CUSTOMER"), DisplayName("Покупатель")]
         public string CUSTOMER { get; set; }
 
-        [JsonProperty("NAME_PCLASS")]
+        [JsonProperty("NAME_PCLASS"), ReadOnly(true), Browsable(false)]
         public string NAME_PCLASS { get; set; }
 
-        [JsonProperty("ART")]
+        [JsonProperty("ART"), ReadOnly(true)]
         public string ART { get; set; }
 
-        [JsonProperty("NAME")]
+        [JsonProperty("NAME"), ReadOnly(true)]
         public string NAME { get; set; }
 
         [JsonProperty("USERNAME")]
@@ -78,7 +80,7 @@ namespace DXApplication1
         [JsonProperty("COMMENTS")]
         public string COMMENTS { get; set; }
         
-        [JsonProperty("CHECKED")]
+        [JsonProperty("CHECKED"), ReadOnly(true)]
         [DefaultValue(false)]
         public bool? CHECKED { get; set; } = false;
 
@@ -139,6 +141,11 @@ namespace DXApplication1
                 }
             };
             tableView1.FormatConditions.Add(cond1);
+        }
+
+        private void UpdateNote(object sender, RowUpdatedEventArgs e)
+        {
+            Debug.WriteLine($"Теперь дата");
         }
 
         public async Task LoadDataToGrid()
