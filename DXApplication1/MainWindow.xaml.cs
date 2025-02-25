@@ -10,13 +10,9 @@ using Newtonsoft.Json.Converters;
 using System.ComponentModel;
 using System.Data.Common;
 using System.Diagnostics;
-using System.Drawing;
-using System.Linq;
 using System.Windows;
-using System.Windows.Forms;
 using System.Windows.Input;
 using System.Windows.Media;
-using DevExpress.Mvvm.Native;
 using DevExpress.Xpf.Core.ConditionalFormatting;
 using DevExpress.Xpf.Grid;
 using Brushes = System.Windows.Media.Brushes;
@@ -26,38 +22,28 @@ namespace DXApplication1
 {
     public class RootResponse
     {
-        [JsonProperty("Ondate")]
-        public DateTime Ondate { get; set; }
+        [JsonProperty("Ondate")] public DateTime Ondate { get; set; }
 
-        [JsonProperty("Status")]
-        public int Status { get; set; }
+        [JsonProperty("Status")] public int Status { get; set; }
 
-        [JsonProperty("Error")]
-        public ErrorInfo Error { get; set; }
+        [JsonProperty("Error")] public ErrorInfo Error { get; set; }
 
-        [JsonProperty("Data")]
-        public string Data { get; set; }
+        [JsonProperty("Data")] public string Data { get; set; }
 
-        [JsonProperty("RequestId")]
-        public string RequestId { get; set; }
+        [JsonProperty("RequestId")] public string RequestId { get; set; }
 
-        [JsonProperty("ClientId")]
-        public string ClientId { get; set; }
+        [JsonProperty("ClientId")] public string ClientId { get; set; }
     }
 
     public class ErrorInfo
     {
-        [JsonProperty("Code")]
-        public int Code { get; set; }
+        [JsonProperty("Code")] public int Code { get; set; }
 
-        [JsonProperty("Sig")]
-        public string Sig { get; set; }
+        [JsonProperty("Sig")] public string Sig { get; set; }
 
-        [JsonProperty("Message")]
-        public string Message { get; set; }
+        [JsonProperty("Message")] public string Message { get; set; }
 
-        [JsonProperty("Description")]
-        public string Description { get; set; }
+        [JsonProperty("Description")] public string Description { get; set; }
     }
 
     public class ConsumptionItem
@@ -91,29 +77,22 @@ namespace DXApplication1
 
     public class ApiRequest
     {
-        [JsonProperty("Token")]
-        public string Token { get; set; }
+        [JsonProperty("Token")] public string Token { get; set; }
 
-        [JsonProperty("Module")]
-        public string Module { get; set; }
+        [JsonProperty("Module")] public string Module { get; set; }
 
-        [JsonProperty("Object")]
-        public string Object { get; set; }
+        [JsonProperty("Object")] public string Object { get; set; }
 
-        [JsonProperty("Action")]
-        public string Action { get; set; }
+        [JsonProperty("Action")] public string Action { get; set; }
 
-        [JsonProperty("Params")]
-        public ApiParams Params { get; set; }
+        [JsonProperty("Params")] public ApiParams Params { get; set; }
     }
 
     public class ApiParams
     {
-        [JsonProperty("DATE_FROM")]
-        public string DATE_FROM { get; set; }
+        [JsonProperty("DATE_FROM")] public string DATE_FROM { get; set; }
 
-        [JsonProperty("DATE_TO")]
-        public string DATE_TO { get; set; }
+        [JsonProperty("DATE_TO")] public string DATE_TO { get; set; }
     }
 
     public partial class MainWindow : ThemedWindow
@@ -124,11 +103,8 @@ namespace DXApplication1
         {
             InitializeComponent();
 
-            Loaded += async (s, e) =>
-            {
-                await LoadDataToGrid();
-            };
-            
+            Loaded += async (s, e) => { await LoadDataToGrid(); };
+
             var cond1 = new FormatCondition
             {
                 FieldName = "CUSTOMER",
@@ -152,15 +128,15 @@ namespace DXApplication1
         {
             var requestBody = new ApiRequest
             {
-                Token = "EF27C4B772178EE489EE8E067A3525CC",
+                Token = "BC73FA48012AB988621B785050B68241",
                 Module = "Rig",
                 Object = "Consumption",
                 Action = "List",
-                //Params = new ApiParams
-                //{
-                //    DATE_FROM = "13.01.2020",
-                //    DATE_TO = "13.02.2025"
-                //}
+                Params = new ApiParams
+                {
+                    DATE_FROM = "13.01.2020",
+                    DATE_TO = "13.02.2025"
+                }
             };
 
             string jsonRequest = JsonConvert.SerializeObject(requestBody);
@@ -187,7 +163,7 @@ namespace DXApplication1
                 System.Diagnostics.Debug.WriteLine(ex.Message);
             }
         }
-        
+
         private void Button_Click(object sender, System.Windows.RoutedEventArgs e)
         {
             Task task = LoadDataToGrid();
@@ -202,21 +178,21 @@ namespace DXApplication1
             //     Debug.WriteLine(items.CUSTOMER + items.USERNAME + items.ART);
             // }
 
-            if (gridControl1.SelectedItem is ConsumptionItem selectedItem) Debug.WriteLine(selectedItem.ART + selectedItem.NAME + selectedItem.USERNAME);
+            // if (gridControl1.SelectedItem is ConsumptionItem selectedItem) Debug.WriteLine(selectedItem.ART + selectedItem.NAME + selectedItem.USERNAME);
         }
 
         private void TableView1_OnFocusedRowHandleChanged(object sender, FocusedRowHandleChangedEventArgs e)
         {
-            var item = (ConsumptionItem)e.RowData.Row;
-
-            if (item != null && item.CHECKED == true)
-            {
-                SelectRow.IsEnabled = true;
-            }
-            else
-            {
-                SelectRow.IsEnabled = false;
-            }
+            // var item = (ConsumptionItem)e.RowData.Row;
+            //
+            // if (item != null && item.CHECKED == true)
+            // {
+            //     SelectRow.IsEnabled = true;
+            // }
+            // else
+            // {
+            //     SelectRow.IsEnabled = false;
+            // }
         }
 
         private void GridControl1_OnKeyDown(object sender, KeyEventArgs e)
@@ -225,6 +201,11 @@ namespace DXApplication1
             {
                 if (gridControl1.SelectedItem is ConsumptionItem selectedItem) Debug.WriteLine(selectedItem.ART + selectedItem.NAME + selectedItem.USERNAME);
             }
+        }
+
+        private void TableView1_OnRowUpdated(object sender, RowEventArgs e)
+        {
+            Debug.WriteLine($"{DateTime.Now:dd.MM.yyyy hh:mm:ss}");
         }
     }
 }

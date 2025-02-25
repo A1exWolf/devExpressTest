@@ -25,6 +25,7 @@
                                AutoWidth="True"
                                AllowDragDrop="True"
                                EditFormShowMode="Inline"
+                               RowUpdated="TableView1_OnRowUpdated"
                                FocusedRowHandleChanged="TableView1_OnFocusedRowHandleChanged">
                     <dxg:TableView.FormatConditions>
                         <!--<dxg:FormatCondition Expression="[CHECKED] = true" FieldName="CHECKED">
